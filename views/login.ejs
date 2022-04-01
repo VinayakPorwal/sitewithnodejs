@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      form {
+          display: flex;
+          flex-direction: column;
+      }
+
+      input {
+          width: 40vw;
+      }
+  </style>
+  </head>
+
+  <body>
+    <form action="/login" method="POST">
+      <label for="email">email</label>
+      <input name="email" placeholder="email" type="text" />
+      <label for="password">password</label>
+      <input name="password" placeholder="password" type="text" />
+      <input type="submit" />
+    </form>
+    <script type="text/javascript">
+      var msg = "<%= alert %>";
+
+      if (msg == null || msg == "") {
+        console.log("empty");
+      } else if (msg !== null || msg !== "") {
+        alert(msg);
+      }
+  
+      // alert("helo");
+    </script>
+  </body>
+</html>

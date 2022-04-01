@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta keywords="fookreywebs">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+    <title>fookreywebs</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body{
+            overflow-x: hidden;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        /* navbar items */
+        #n img {
+            margin-right: auto;
+            height: 40px;
+            width: 40px;
+            border: 2px solid black;
+            border-radius: 80px;
+            transition: 5s;
+        }
+
+        #n img:hover {
+            cursor: pointer;
+            transform: rotate(360deg);
+            border: 3px solid yellow;
+        }
+
+        #id {
+            color: rgb(0, 0, 0);
+            font-size: 14px;
+            font-weight: 500;
+            align-items: center;
+            padding-top: 3px;
+
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        #img {
+            padding: 8px 8px 0 8px;
+            
+            border: 1px;
+            background-color: transparent;
+        }
+
+        #n {
+            z-index: 2;
+            overflow: hidden;
+            align-items: center;
+            display: flex;
+            top: 0px;
+            position: sticky;
+            padding: 0 0 2px 0;
+        }
+
+        #n::before {
+            content: "";
+            background-color: #f5f9ff;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            opacity: 10;
+        }
+
+        #n ul {
+            display: flex;
+            margin-left: auto;
+        }
+
+        #n ul li {
+            list-style-type: none;
+            padding: 10px;
+            align-items: center;
+        }
+
+        #n ul li a {
+
+            border-radius: 15px;
+            display: block;
+            color: rgb(3, 3, 3);
+            font-family: 'Baloo bhai', cursive;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        #n ul li a:hover
+         {
+            color: rgb(255, 0, 0);
+        }
+        #n ul li a:active{
+            color: rgb(255, 0, 0);
+            font-style: italic;
+        }
+        
+        /* home items */
+
+        #home {
+
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            background-color: #00b4e6;
+        }
+
+        #home img {
+            width: 120px;
+            height: 120px;
+            display: block;
+            border-radius: 100px;
+            margin: auto;
+            position: relative;
+
+            animation: fookrey;
+            animation-duration: 2s;
+            animation-play-state: ease;
+            transition: 0.8s;
+            top: 30%;
+            bottom:70%;
+        }
+
+        @keyframes fookrey {
+            50% {
+                transform: rotate(360deg);
+                width: 200px;
+                height: 200px;
+            }
+
+            100% {
+                transform: rotate(-360deg);
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        #home img:hover {
+            transform: rotate(360deg);
+            width: 200px;
+            height: 200px;
+            border: 2px solid white;
+        }
+
+        #name {
+            text-align: center;
+            font-family: 'baloo bhai', cursive;
+            font-weight: 400;
+            font-size: 45px;
+            position: absolute;
+            top: 70%;
+            right: 10%;
+            left: 10%;
+            bottom:30%;
+                }
+
+        #name a {
+            color: rgb(53, 52, 53);
+            text-shadow: 1px 1px rgba(0, 0, 0, 0.8);
+
+            stroke: 6px;
+            outline-color: white;
+            text-decoration: none;
+            transition: 2s;
+        }
+
+        #name a:hover {
+            color: rgb(207, 240, 18);
+            text-shadow: 3px 3px rgba(0, 0, 0, 0.8);
+
+            
+        }
+
+        #foot{
+        position:sticky;
+        margin: auto;
+        align-items: center;
+        background-color: rgb(0, 0, 0);
+        height: 9vh;
+        width: 100vw;
+        }
+        #foot h3{
+         text-align: center;
+         position: relative;
+         top: 30%;
+         bottom: 0%;
+         color: azure;
+         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+        }
+        #foot h3 a{
+        text-decoration: none;
+        color: azure;
+        transition: 0.5s;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+        }
+        #foot h3 a:hover{
+        color: yellow;
+        }
+        /* about itemms */
+        
+        #about {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            text-align: center;
+            overflow: hidden;
+            background-color: #00b4e6;
+        }
+        
+        #about h2 {
+            position: absolute;
+            top: 20%;
+            bottom: 50%;
+            right: 30%;
+            left: 30%;
+            font-size: 30px;
+            text-align: center;
+            font-family: 'baloo bhai', cursive;
+            color: rgb(219, 211, 97);
+            text-shadow: 3px 2px rgba(12, 12, 12, 0.8);
+        }
+        #par {
+            position: relative;
+            margin: auto;
+            top: 45%;
+            bottom: 50%;
+            color: white;
+            font-weight: 450;
+            opacity: 0;
+            width: 80%;
+            height: 250px;
+            margin-top: 30px;
+            padding: 40px 10px 10px 10px;
+            text-align: center;
+            transition: 1s;
+            border: 1px solid white;
+            background-color: #1c2897;
+            border-radius: 20px;
+            text-shadow: 3px 2px rgba(12, 12, 12, 0.8);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        }
+.one_{
+    text-decoration: none;
+    color: white;
+    position: relative;
+    padding: 10px;
+right: 8%;
+transition: 0.5s;
+font-size: 15px;
+}
+.one_:hover{
+    font-size: 18px;
+    color: yellow;
+}
+        #back {
+            display: block;
+            transition: 1s;
+            position: absolute;
+            right: 90px;
+            margin-top: 220px;
+            opacity: 0;
+            padding: 5px 3px 5px 3px;
+            font-size: 10px;
+            width: 70px;
+            color: black;
+            background: white;
+            border-radius: 18px;
+            opacity: 0;
+            border: 1px solid black;
+        }
+
+        #vid {
+            z-index: 1;
+            border: 1px solid white;
+            width: 150px;
+            border-radius: 25px;
+            font-weight: 700;
+            margin: auto;
+            background: black;
+            position: relative;
+            top: 25%;
+            bottom: 50%;
+            color: white;
+            padding: 7px 5px 7px 7px;
+            transition: 0.6s;
+        }
+
+        #vid:hover {
+            text-align: center;
+            background: white;
+            color: black;
+            width: 200px;
+        }
+
+        /*
+        for animating from HTML and CSS
+        #vid:hover #par{
+        transform :translateY(-90px);
+        opacity : 1 ;
+        
+        } */
+
+        /*
+        #abut:hover span {
+            transform: translateY(-90px);
+            opacity: 1;
+        }
+        #abut:hover #par {
+            transform: translateY(-30px);
+            opacity: 1;
+        }
+        #abut:hover #vid {
+            text-align: center;
+            background: white;
+            color: black;
+            width: 200px;
+        } */
+
+        /* instagram items */
+
+        #instagram {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            text-align: center;
+            flex-direction: column;
+            background-color: #00b4e6;
+        }
+
+        #but {
+            position: absolute;
+            top: 25%;
+            right: 10%;
+            left: 10%;
+            margin: auto;
+            border: 2px black;
+            border-radius: 20px;
+            height: 40px;
+            width: 150px;
+            border: 2px solid white;
+            background-color: #000000;
+            transition: 1s;
+        }
+
+        #but:hover {
+            border: 2px solid white;
+            margin: auto;
+            cursor: pointer;
+            width: 250px;
+            height: 40px;
+            background-color: #55efc4;
+            overflow: hidden;
+            text-shadow: 1px 1px rgba(12, 12, 12, 0.8);
+
+        }
+
+
+        #but a {
+            border: 1px white;
+            text-decoration: none;
+            color: white;
+            font-family: 'baloo bhai', cursive;
+            font-size: 15px;
+            overflow: hidden;
+        }
+
+        #but a:hover {
+            text-decoration: none;
+            font-family: 'baloo bhai', cursive;
+            font-size: 17px;
+            color: yellow;
+        }
+
+        #span {
+            position: absolute;
+            top: 19%;
+            bottom: 40%;
+            right: 10%;
+            left: 10%;
+            font-size: x-large;
+            text-align: center;
+            font-weight: 620;
+            color: white;
+            font-family: 'baloo bhai', cursive;
+            text-shadow: 2px 1px rgba(12, 12, 12, 0.8);
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            top: 30%;
+        }
+        input{
+            width: 250px;
+            height: 30px;
+            padding: 0px 10px;
+            margin: 15px;
+            border-radius: 5px;
+        }
+        #sub{
+            width: 180px;
+            height: 40px;
+            border: 1px solid white;
+            border-radius: 12px;
+        }
+        textarea{
+        border: 2px solid black;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 0 10px;
+        }
+/* java script classes */
+        .show {
+            transform: translateY(-120px);
+        }
+
+        .showb {
+            transform: translateX(60px);
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="n">
+        <a id="img">
+            <img src="https://i.ibb.co/zHJRXPB/Img1.jpg" alt="Img1">
+        </a>
+        <div id="id">FOOKREY.exe</div>
+        <ul class="nav">
+            <li><a href=#home onclick="pageserve()">Home</a>
+            </li>
+            <li><a href=#about onclick="pageserve2()">About</a>
+            </li>
+
+            <li> <a href=#instagram onclick="pageserve3()"> Contact</a>
+            </li>
+        </ul>
+    </nav>
+    <section id="home">
+        <a href="#">
+            <img src="https://i.ibb.co/zHJRXPB/Img1.jpg" alt="Img1">
+        </a>
+        
+        <h1 id="name"><a href="">Welcome to Fookrey Webs<a></h1>
+        </section>
+        
+        <div id="about">
+            <h2> About Fookrey</h2>
+            <button id="vid" onclick="myfunction()">PROJECTS
+            </button>
+            <p id="par">
+                <a class="one_" href="/binary_convertor.html">•Decimal to Binary Convertor</a>
+                <br>
+                <!-- <a class="one_" href="/binary_convertor.html">•Decimal to Binary Convertor</a> -->
+            
+            </p>
+                <span id="back" onclick="myfunction1()">Back</span>
+            </div>
+        </div>
+        
+        <section id="instagram">
+            
+            <button id="but" ><a href="https://instagram.com/fookrey.exe?igshid=1rhowug55obxy">Go To Instagram</a>
+            </button>
+            <form action="/submit.php" method="post">
+                <input type="text" name ="user" placeholder="Enter your Name" required name="Name">
+                <input type="email" name ="email" placeholder="Enter your email"required name="Email">
+                <input type="text" name= "subject" placeholder="Subject"required name="Subject">
+                <textarea  name="message" placeholder="Enter Your message" required name="Message" rows="8" cols="30"></textarea>
+                <input id= "sub" type="submit" >
+                
+            </form>
+        </section>
+        <div id="foot">
+            <h3>Handling by <em><a href="https://fookreywebs.epizy.com">FookreyWebs</a></em></h3></div>  
+        <script>
+            
+
+        function myfunction() {
+            document.getElementById("par")
+                .style.opacity = '1';
+            document.getElementById("par")
+                .classList.add("show");
+            document.getElementById("back")
+                .style.opacity = '1';
+            document.getElementById("back")
+                .classList.add("showb");
+        }
+        function myfunction1() {
+            document.getElementById("par")
+                .style.opacity = '0';
+            document.getElementById("par")
+                .classList.remove("show");
+            document.getElementById("back")
+                .style.opacity = '0';
+            document.getElementById("back")
+                .classList.remove("showb");
+        };
+        function pageserve() {
+            document.getElementById("about").style.display = "none";
+            document.getElementById("instagram").style.display = "none";
+            document.getElementById("home").style.display = "block";
+
+            console.log("hello");
+        }
+        function pageserve2() {
+            document.getElementById("home").style.display = "none";
+            document.getElementById("instagram").style.display = "none";
+            document.getElementById("about").style.display = "block";
+            console.log("hello");
+        }
+        function pageserve3() {
+            document.getElementById("home").style.display = "none";
+            document.getElementById("about").style.display = "none";
+            document.getElementById("instagram").style.display = "flex";
+            console.log("hello");
+        }
+    </script>
+
+</body>
+
+</html>
+

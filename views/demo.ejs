@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>fookreywebs</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Raleway", sans-serif;
+      }
+      body,
+      html {
+        height: 100%;
+        line-height: 1.8;
+      }
+      /* Full height image header */
+      .bgimg-1 {
+        background-position: center;
+        background-size: cover;
+        background-color: rgb(255, 255, 255);
+        /* background-image: url("https://source.unsplash.com/random"); */
+        min-height: 100%;
+        z-index: 0;
+        opacity: 100%;
+      }
+      .hehe {
+        z-index: 1;
+        opacity: 100%;
+      }
+      .w3-bar .w3-button {
+        padding: 16px;
+      }
+      #one {
+        width: 90%;
+        height: 90%;
+        display: block;
+        border-radius: 100%;
+        position: relative;
+        opacity: 100%;
+        z-index: 2;
+        animation: fookrey;
+        animation-duration: 3s;
+        animation-play-state: ease;
+        transition: 0.8s;
+        top: -20px;
+      }
+      @keyframes fookrey {
+        0% {
+          width: 100%;
+          height: 100%;
+          margin-left: -260%;
+        }
+        50% {
+          transform: rotate(50deg);
+          width: 110%;
+          height: 110%;
+          margin-left: 60%;
+        }
+        80% {
+        }
+        100% {
+          transform: rotate(0deg);
+          width: 90%;
+          height: 90%;
+          margin-left: 0;
+        }
+      }
+      #one:hover {
+        transform: rotate(30deg);
+        transition: 0.5s;
+        cursor: pointer;
+        border: 2px solid white;
+      }
+      #name {
+        position: absolute;
+        top: 80%;
+        bottom: 20%;
+        right: 20%;
+        left: 20%;
+        font-family: "baloo bhai", cursive;
+        font-weight: 600;
+        font-size: 250%;
+        text-align: center;
+      }
+      #im1 {
+        padding: 0 0 -20px 0;
+        margin-bottom: -10px;
+        margin-top: -10px;
+        height: 40px;
+        width: 40px;
+        border: 2px solid black;
+        border-radius: 80px;
+        animation: fookrey2;
+        animation-duration: 2.5s;
+        animation-play-state: ease;
+        transition: 0.8s;
+        z-index: 3;
+      }
+      @keyframes fookrey2 {
+        0% {
+          margin-left: -80px;
+        }
+        60% {
+          margin-left: 40vw;
+          transform: rotate(30deg);
+        }
+        100% {
+        }
+      }
+      /* #im1:hover{
+      margin-left: 400px;
+      transform: rotate(30deg);
+      transition: 1s;
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- Navbar (sit on top)-->
+    <div class="w3-top">
+      <div class="w3-bar w3-black w3-card" id="myNavbar">
+        <a class="w3-bar-item w3-button w3-wide w3-hover-black" href="/"
+          ><img id="im1" src="https://i.ibb.co/zHJRXPB/Img1.jpg" alt="Img1"
+        /></a>
+        <!-- Right-sided navbar links-->
+        <div class="w3-right w3-hide-small">
+          <a class="w3-bar-item w3-button" href="/about">ABOUT</a>
+          <a class="w3-bar-item w3-button" href="/projects"
+            ><i class="fa fa-th"></i> WORK</a
+          >
+          <a class="w3-bar-item w3-button" href="/contact"
+            ><i class="fa fa-envelope"></i> CONTACT</a
+          >
+          <!-- <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a>-->
+          <!-- <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>-->
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon--><a
+          class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+          href="javascript:void(0)"
+          onclick="w3_open()"
+          ><i class="fa fa-bars"></i
+        ></a>
+      </div>
+    </div>
+    <!-- Sidebar on small screens when clicking the menu icon-->
+    <nav
+      class="
+        w3-sidebar
+        w3-bar-block
+        w3-black
+        w3-card
+        w3-animate-left
+        w3-hide-medium
+        w3-hide-large
+      "
+      id="mySidebar"
+      style="display: none"
+    >
+      <a
+        class="w3-bar-item w3-button w3-large w3-padding-16"
+        href="javascript:void(0)"
+        onclick="w3_close()"
+        >Close &times;</a
+      >
+      <a class="w3-bar-item w3-button" href="/about" onclick="w3_close()"
+        >ABOUT</a
+      >
+      <a class="w3-bar-item w3-button" href="/pojects" onclick="w3_close()"
+        >WORK</a
+      >
+      <a class="w3-bar-item w3-button" href="/contact" onclick="w3_close()"
+        >CONTACT</a
+      >
+      <!-- <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>-->
+      <!-- <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a>-->
+    </nav>
+    <!-- Header with full-height image-->
+    <header class="bgimg-1 w3-display-container" id="home">
+      <div class="w3-display-middle w3-text-black" style="padding: 48px">
+        <img id="one" src="https://i.ibb.co/zHJRXPB/Img1.jpg" alt="Img1" />
+        <!-- <span class="w3-large,  hehe">Stop wasting valuable time with projects that just isn't you.</span>-->
+        <!-- <p><a href="/about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off ">Learn more and start today</a></p>-->
+      </div>
+      <span class="w3-hide-small" id="name">Welcome to Fookrey Webs</span><br />
+      <div
+        class="w3-display-bottomleft w3-text-black w3-large"
+        style="padding: 14px 10px 0 10px"
+      >
+        <i class="fa fa-facebook-official w3-hover-text-yellow"></i>
+        <i class="fa fa-instagram w3-hover-text-yellow"></i>
+        <i class="fa fa-snapchat w3-hover-text-yellow"></i>
+        <i class="fa fa-pinterest-p w3-hover-text-yellow"></i>
+        <i class="fa fa-twitter w3-hover-text-yellow"></i>
+        <i class="fa fa-linkedin w3-hover-text-yellow"></i>
+      </div>
+    </header>
+    <!-- Footer-->
+    <footer class="w3-center w3-black w3-padding-64">
+      <a class="w3-button w3-light-grey" href="#home"
+        ><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a
+      >
+      <div class="w3-xlarge w3-section">
+        <i class="fa fa-facebook-official w3-hover-text-yellow"></i>
+        <i class="fa fa-instagram w3-hover-text-yellow"></i>
+        <i class="fa fa-snapchat w3-hover-text-yellow"></i>
+        <i class="fa fa-pinterest-p w3-hover-text-yellow"></i>
+        <i class="fa fa-twitter w3-hover-text-yellow"></i>
+        <i class="fa fa-linkedin w3-hover-text-yellow"></i>
+      </div>
+      <p>
+        Handling by
+        <a
+          class="w3-hover-text-yellow"
+          href="https://fookreywebs.epizy.com/"
+          title="FookreyWebs"
+          target="_blank"
+        >
+          FookreyWebs</a
+        >
+      </p>
+    </footer>
+    <script>
+      // Modal Image Gallery
+      function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+      }
+      // Toggle between showing and hiding the sidebar when clicking the menu icon
+      var mySidebar = document.getElementById("mySidebar");
+      function w3_open() {
+        if (mySidebar.style.display === "block") {
+          mySidebar.style.display = "none";
+        } else {
+          mySidebar.style.display = "block";
+        }
+      }
+      // Close the sidebar with the close button
+      function w3_close() {
+        mySidebar.style.display = "none";
+      }
+    </script>
+  </body>
+</html>

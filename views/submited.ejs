@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<%= alert %>
+<!-- <p>your responsse has been submitted successfullly</p> -->
+<!-- <script>
+var helo=  "<%= alert %>";
+  alert(helo);
+
+</script> -->
+<script type="text/javascript">
+  var msg = "<%= alert %>";          
+  
+  
+if(msg==null || msg=="") {
+    console.log("empty");
+  }
+  else if(msg!==null || msg!=="") 
+  {  
+   alert(msg);
+  }
+  // alert("helo");
+  
+  </script>
+</body>
+</html>

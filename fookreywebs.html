@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta keywords="fookreywebs">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #n img {
+
+            margin-right: auto;
+
+            height: 40px;
+            width: 40px;
+            border: 2px solid black;
+            border-radius: 80px;
+            transition: 5s;
+        }
+
+        #n img:hover {
+            cursor: pointer;
+            transform: rotate(360deg);
+            border: 3px solid yellow;
+        }
+
+        #id {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        #img {
+            border: 1px;
+            background-color: transparent;
+        }
+
+        #n {
+            z-index: 2;
+            overflow: hidden;
+            align-items: center;
+            display: flex;
+            top: 0px;
+            position: sticky;
+            padding: 0 0 2px 0;
+            border-radius: 7px;
+        }
+
+        #n::before {
+            content: "";
+            background-color: #485461;
+            background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            opacity: 10;
+        }
+
+        #n ul {
+            display: flex;
+            margin-left: auto;
+        }
+
+        #n ul li {
+            list-style-type: none;
+
+        }
+
+        #n ul li a {
+
+            border-radius: 15px;
+            display: block;
+            color: red;
+            font-family: 'Baloo bhai', cursive;
+            text-decoration: none;
+            padding: 0px 4px 0px 4px;
+        }
+
+        #n ul li a:hover,
+        a:active {
+            color: black;
+            background-color: white;
+            border: 1px solid;
+        }
+
+        #home {
+
+            align-content: center;
+            height: 520px;
+            margin-bottom: -6px;
+            background-color: #2d3436;
+            background-image: linear-gradient(315deg, #2d3436 0%, #000000 44%);
+
+
+        }
+
+        #home img {
+            width: 120px;
+            height: 120px;
+            display: block;
+            border-radius: 100px;
+            margin: auto;
+            position: relative;
+            animation: fookrey;
+            animation-duration: 2s;
+            animation-play-state: ease;
+            transition: 0.8s;
+            top: 70px;
+        }
+
+        @keyframes fookrey {
+            50% {
+                transform: rotate(360deg);
+                width: 200px;
+                height: 200px;
+            }
+
+            100% {
+                transform: rotate(-360deg);
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        #home img:hover {
+            transform: rotate(360deg);
+            width: 200px;
+            height: 200px;
+            border: 2px solid white;
+        }
+
+        #name {
+            padding: 80px 0 80px 0;
+            text-align: center;
+            font-family: 'baloo bhai', cursive;
+            font-weight: 400;
+            font-size: 45px;
+        }
+
+        #name a {
+            color: Hotpink;
+            outline: 6px;
+            outline-color: white;
+            text-decoration: none;
+        }
+
+        #about {
+            height: 330px;
+            text-align: center;
+            margin: -10px 0 -20px 0;
+            padding: 50px 0 20px 0;
+            background-color: #2d3436;
+            background-image: linear-gradient(315deg, #2d3436 0%, #000000 94%);
+            transition: 0.5s;
+        }
+
+        #par {
+            position: absolute;
+            right: 9%;
+            color: white;
+            font-weight: 450;
+            opacity: 0;
+            width: 80%;
+            height: 200px;
+            margin-top: 30px;
+            padding: 80px 10px 160px 10px;
+            text-align: center;
+            transition: 0.8s;
+            border: 1px solid white;
+            background-color: #55efc4;
+            background-image: linear-gradient(315deg, #55efc4 0%, #000000 94%);
+            border-radius: 20px;
+        }
+
+        #back {
+
+            display: block;
+            transition: 1s;
+            position: absolute;
+            right: 90px;
+            margin-top: 220px;
+            opacity: 0;
+            padding: 5px 3px 5px 3px;
+
+            font-size: 10px;
+            width: 70px;
+            color: black;
+            background: white;
+            border-radius: 18px;
+            opacity: 0;
+            border: 1px solid black;
+
+        }
+
+        #vid {
+            z-index: 1;
+            text-align: center;
+            border: 1px solid white;
+            width: 150px;
+            border-radius: 25px;
+            font-weight: 700;
+            margin: auto;
+            margin-top: 120px;
+            margin-bottom: 10px;
+            background: black;
+            position: relative;
+            color: white;
+            padding: 7px 5px 7px 7px;
+            transition: 0.6s;
+        }
+
+        #vid:hover {
+            text-align: center;
+            background: white;
+            color: black;
+            width: 200px;
+            transform: translateY(-30px);
+        }
+
+        /*
+        for animating from HTML and CSS
+        #vid:hover #par{
+        transform :translateY(-90px);
+        opacity : 1 ;
+        
+        } */
+        #instagram button a {
+            border: 1px white;
+        }
+
+        /*
+        #abut:hover span {
+            transform: translateY(-90px);
+            opacity: 1;
+        }
+        #abut:hover #par {
+            transform: translateY(-30px);
+            opacity: 1;
+        }
+        #abut:hover #vid {
+            text-align: center;
+            background: white;
+            color: black;
+            width: 200px;
+        } */
+        #about h2 {
+            font-size: 30px;
+            text-align: center;
+            font-family: 'baloo bhai', cursive;
+            color: brown;
+            text-shadow: 3px 3px rgba(220, 160, 0, 0.8);
+        }
+
+        #instagram {
+            height: 380px;
+            margin: 12px 0 0 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            padding: 100px 0 30px 0;
+            background-color: #2d3436;
+            background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+        }
+
+        #instagram button {
+            border: 1px white;
+            position: relative;
+
+            margin: auto;
+            border: 2px black;
+            border-radius: 20px;
+            height: 40px;
+            width: 150px;
+            background-color: #000000;
+            background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
+            transition: 1s;
+        }
+
+        #instagram button:hover {
+            border: 1px white;
+            margin: auto;
+            cursor: pointer;
+            width: 250px;
+            height: 40px;
+            background-color: #55efc4;
+            background-image: linear-gradient(315deg, #55efc4 0%, #000000 94%);
+            overflow: hidden;
+        }
+
+        #instagram button a {
+            text-decoration: none;
+            color: white;
+            font-family: 'baloo bhai', cursive;
+            font-size: 15px;
+            overflow: hidden;
+        }
+
+        #instagram button a:hover {
+            text-decoration: none;
+            font-family: 'baloo bhai', cursive;
+            font-size: 17px;
+            color: yellow;
+        }
+
+        #span {
+            position: relative;
+            top: 80px;
+            font-weight: 700;
+            color: white;
+            font-family: 'baloo bhai', cursive;
+
+        }
+
+        .show {
+            transform: translateY(-120px);
+        }
+
+        .showb {
+            transform: translateX(60px);
+        }
+
+        .showbo {
+            transform: translateX(-190px);
+        }
+
+        .hide {
+            z-index: -1;
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="n">
+        <a id="img">
+            <img src="https://i.ibb.co/zHJRXPB/Img1.jpg" alt="Img1" border="0">
+        </a>
+        <div id="id">Fookrey.exe</div>
+        <ul class="nav">
+            <li><a href=#home>Home</a>
+            </li>
+            <li><a href=#about>About</a>
+            </li>
+
+            <li> <a href=#instagram>Instagram</a>
+            </li>
+        </ul>
+    </nav>
+    <section id="home">
+        <a href="#">
+            <img src="https://i.ibb.co/zHJRXPB/Img1.jpg" alt="Img1" border="0">
+        </a>
+        <h1 id="name"><a href="https://www.google.com"> Welcome to Fookrey Webs<a></h1>
+    </section>
+
+    <section id="about">
+        <h2> About Fookrey</h2>
+        <button id="vid" onclick="myfunction()">Video Creator:
+        </button>
+        <p id="par">Creating some memes and makes you laugh ^_^ , recently also created a meme Series named "Super Raju"
+            which is basically a scripted story meme contain 4 episodes , More series like this uploading soon...
+            CUREENT PAGE STATUS : INACTIVE</p>
+        <span id="back" onclick="myfunction1()">Back</span>
+        </div>
+    </section>
+
+    <section id="instagram">
+        <span id="span">Visit our Instagram Page:</span>
+        <button><a href="https://instagram.com/fookrey.exe?igshid=1rhowug55obxy">Go To Instagram</a>
+        </button>
+    </section>
+    <script>
+        //let myfunction = document.getElementById("vid")
+
+
+        function myfunction() {
+            document.getElementById("par")
+                .style.opacity = '1';
+            document.getElementById("par")
+                .classList.add("show");
+            document.getElementById("back")
+                .style.opacity = '1';
+            document.getElementById("back")
+                .classList.add("showb");
+            document.getElementById("back").classList.remove("showbo");
+            document.getElementById("about").style.height = "530px";
+
+        }
+
+        function myfunction1() {
+            document.getElementById("par")
+                .style.opacity = '0';
+            document.getElementById("back").classList.add("showbo");
+            document.getElementById("par")
+                .classList.remove("show");
+            document.getElementById("back")
+                .style.opacity = '0';
+            document.getElementById("back")
+                .classList.remove("showb");
+            document.getElementById("about").style.height = "330px";
+        }
+    </script>
+</body>
+
+</html>
