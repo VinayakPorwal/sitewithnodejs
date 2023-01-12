@@ -6,7 +6,9 @@ const app = express();
 const hostname = "127.0.0.1";
 const port = 80;
 const mongoose = require("mongoose");
+const ytdl = require("ytdl-core");
 // const bodyparser = require("body-parser");
+const date = new Date();
 
 //schema for contact form
 const schema = new mongoose.Schema({
@@ -23,21 +25,21 @@ const registerschema = new mongoose.Schema({
   name: String,
   email: String,
   password: String,
-  date : Date,
+  date: Date,
 });
 const Register = new mongoose.model("register", registerschema);
 
 // For serving static files
-app.use("/static", express.static("static"));
+app.use(express.static(path.join(__dirname, "public")));
 
 // for getting file path from website
 app.use(express.urlencoded({ extended: true }));
 
-// Set the template engine as pug
+// Set the template engine as ejs
 app.set("view engine", "ejs");
 
 // Set the views directory
-app.set("views", path.join(__dirname, "views"));
+// app.set("views", path.join(__dirname, "views"));
 app.get("/", (req, res) => {
   res.status(200).render("demo");
 });
@@ -57,6 +59,26 @@ app.get("/login", (req, res) => {
   res.status(200).render("login", { alert: "" });
 });
 
+const url = "https://www.youtube.com/watch?v=xNTW2KfErTM";
+const videoName = "never-gonna-give-you-up.mp4";
+
+app.get("/down", async (req, res) => {
+  var URL = req.query.URL;
+  // res.json({ url: URL });
+  //  ytdl(url)
+  //   .pipe(fs.createWriteStream(videoName))
+  //   .on("finish", () => {
+  //     console.log(`${videoName} has been downloaded!`);
+  //   });
+  res.header("Content-Disposition", 'attachment; filename="video.mp4"');
+  ytdl(url, {
+    format: "mp4",
+  }).pipe(res);
+  let info = await ytdl.getInfo("xNTW2KfErTM");
+  console.log(info)
+  res.send("done");
+});
+
 //-----get data of input to store in text file-----
 // app.post('/submited', (req, res) => {
 //   namefull = req.body.Name;
@@ -69,16 +91,19 @@ app.get("/login", (req, res) => {
 //   res.status(200).render("submited");
 // });
 
-//-----to store data in database-----
+//-----to store Contact Form data in database-----
 app.post("/contact", (req, res) => {
   var myData = new Contact(req.body);
   myData
     .save()
     .then(() => {
+      console.log(myData);
       res.send("This item has been saved to the database");
     })
     .catch(() => {
       res.status(400).send("item was not saved to the databse");
+      console.log(myData);
+      // console.log(res)
     });
 });
 
@@ -95,7 +120,6 @@ app.post("/contact", (req, res) => {
 //   });
 // }
 
-
 //--to store data of user into register table/collection
 app.post("/signup", (req, res) => {
   var data = new Register(req.body);
@@ -107,7 +131,7 @@ app.post("/signup", (req, res) => {
   //   res
   //     .status(200)
   //     .render("signup", { alert: "account with this email already exist" });
-  // } 
+  // }
   if (req.body.password !== req.body.cpassword) {
     console.log("password does not match");
     // res.send('<script>alert("password does not match")</script>')
@@ -116,26 +140,21 @@ app.post("/signup", (req, res) => {
     if (req.body.password === req.body.cpassword) {
       Register.findOne({ email: req.body.email }, function (err, user) {
         if (err) {
-
           return handleError(err);
-
-        }
-        else if (!user) {
+        } else if (!user) {
           console.log(data);
           data.save(() => {
             console.log("data saved");
             res.status(200).render("demo");
           });
-        }
-        else {
+        } else {
           // console.log("%s %s", Contact.name, Contact.email);
-          res
-            .status(200)
-            .render("signup", { alert: "account with this email already exist" });
+          res.status(200).render("signup", {
+            alert: "account with this email already exist",
+          });
           // return true;
         }
       });
-
     }
   }
 });
@@ -147,20 +166,18 @@ app.post("/login", (req, res) => {
   console.log(req.body.password, req.body.email);
   Register.findOne({ email: req.body.email }, function (err, user) {
     if (!user) {
-      res.status(200).render("login", { alert: "Account doesnt exist , create an account first" });
-    }
-    else if (user.password === req.body.password) {
+      res.status(200).render("login", {
+        alert: "Account doesnt exist , create an account first",
+      });
+    } else if (user.password === req.body.password) {
       console.log(user.password, user.email);
       console.log("logged in");
       res.status(200).render("demo");
-    }
-    else if (user.password !== req.body.password){
+    } else if (user.password !== req.body.password) {
       console.log("password does not match");
       res.status(200).render("login", { alert: "password does not match" });
     }
-
-  })
-
+  });
 });
 // strat the server
 app.listen(port, () => {
@@ -206,7 +223,6 @@ app.listen(port, () => {
 // server.listen(port, hostname, () => {
 //   console.log(`Server running at http://${hostname}:${port}/`);
 // });
-
 
 function validateEmailAccessibility(email, done) {
   User.find({ email: email }, function (err, result) {

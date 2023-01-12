@@ -1,72 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <style>
-        form {
-            display: flex;
-            flex-direction: column;
-        }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
 
-        input {
-            width: 40vw;
-        }
+      input {
+        width: 40vw;
+      }
     </style>
-</head>
+  </head>
 
-
-<body>
+  <body>
     <form action="/signup" method="POST">
-        <label for="name">name</label>
-        <input name="name" placeholder="name" type="text" />
-        <label for="email">email</label>
-        <input name="email" placeholder="email" type="email" />
-        <label for="password">password</label>
-        <input name="password" placeholder="password" type="text" />
-        <label for="cpassword">Confirm password</label>
-        <input name="cpassword" placeholder="confirm password" type="text" />
+      <label for="name">name</label>
+      <input name="name" placeholder="name" type="text" />
+      <label for="email">email</label>
+      <input name="email" placeholder="email" type="email" />
+      <label for="password">password</label>
+      <input name="password" placeholder="password" type="text" />
+      <label for="cpassword">Confirm password</label>
+      <input name="cpassword" placeholder="confirm password" type="text" />
       <input type="text" name="date" id="date" />
 
-        <input type="submit" />
+      <input type="submit" />
     </form>
     <script type="text/javascript">
-        var msg = "<%= alert %>";
+      var msg = "<%= alert %>";
 
+      if (msg == null || msg == "") {
+        console.log("empty");
+      } else if (msg !== null || msg !== "") {
+        alert(msg);
+      }
+      // alert("helo");
+      function setInputDate(_id) {
+        var _dat = document.querySelector(_id);
+        var hoy = new Date(),
+          d = hoy.getDate(),
+          m = hoy.getMonth() + 1,
+          y = hoy.getFullYear(),
+          data;
 
-        if (msg == null || msg == "") {
-            console.log("empty");
+        if (d < 10) {
+          d = "0" + d;
         }
-        else if (msg !== null || msg !== "") {
-            alert(msg);
+        if (m < 10) {
+          m = "0" + m;
         }
-  // alert("helo");
-  function setInputDate(_id){
-    var _dat = document.querySelector(_id);
-    var hoy = new Date(),
-        d = hoy.getDate(),
-        m = hoy.getMonth()+1, 
-        y = hoy.getFullYear(),
-        data;
 
-    if(d < 10){
-        d = "0"+d;
-    };
-    if(m < 10){
-        m = "0"+m;
-    };
+        data = y + "-" + m + "-" + d;
+        console.log(hoy);
+        _dat.value = hoy;
+      }
 
-    data = y+"-"+m+"-"+d;
-    console.log(hoy);
-    _dat.value = hoy;
-};
-
-setInputDate("#date");
-
+      setInputDate("#date");
     </script>
-</body>
-
+  </body>
 </html>

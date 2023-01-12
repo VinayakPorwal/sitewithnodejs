@@ -18,7 +18,7 @@ const schema = new mongoose.Schema({
   email: String,
   subject: String,
   message: String,
-  // date: Date
+  date: Date
 });
 const Contact = mongoose.model("contacts", schema);
 
@@ -38,14 +38,14 @@ const Contact = mongoose.model("contacts", schema);
 // })
 // data.save();
 
-// const finds =  Contact.find({},function(err,user){
-//   console.log(user);
-// })
+const finds =  Contact.find({},function(err,user){
+  console.log(user);
+})
 
-Contact.findOne({ name: "rawbeen.exe" }, function (err, Contact) {
-  if (err) return handleError(err);
-  console.log("%s %s is a %s .", Contact.name, Contact.email, Contact.subject);
-});
+// Contact.findOne({ name: "rawbeen.exe" }, function (err, Contact) {
+//   if (err) return handleError(err);
+//   console.log("%s %s is a %s .", Contact.name, Contact.email, Contact.subject);
+// });
 
 // console.log('hello');
 // console.log( Contact.find({}));
