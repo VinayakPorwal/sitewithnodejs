@@ -1,0 +1,26 @@
+{
+  "name": "web-devlopment",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://VinayakPorwal.github.io/sitewithnodejs",
+  "main": "index.js",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "go": "nodemon index.js",
+    "dev": "env-cmd nodemon index.js",
+    "repl": "env-cmd node"
+  },
+  "author": "fookrey",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.8",
+    "env-cmd": "^10.1.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.7",
+    "nodemon": "^2.0.12",
+    "ytdl-core": "^4.11.2"
+  }
+}
