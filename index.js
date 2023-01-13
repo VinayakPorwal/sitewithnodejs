@@ -8,8 +8,9 @@ const port = 80;
 const mongoose = require("mongoose");
 const ytdl = require("ytdl-core");
 // const bodyparser = require("body-parser");
+const cors = require("cors");
 const date = new Date();
-
+app.use(cors());
 //schema for contact form
 const schema = new mongoose.Schema({
   name: String,
@@ -42,6 +43,9 @@ app.set("view engine", "ejs");
 // app.set("views", path.join(__dirname, "views"));
 app.get("/", (req, res) => {
   res.status(200).render("demo");
+});
+app.get("/2", (req, res) => {
+  res.status(200).send("demo");
 });
 app.get("/contact", (req, res) => {
   res.status(200).render("contact");
